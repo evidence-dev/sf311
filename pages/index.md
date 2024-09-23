@@ -204,7 +204,10 @@ from sf311.cases
         - Filter for the neighborhood using the page param in your query
 -->
 
-<!-- 8. Add a PointMap to display the last 100 cases using the latitude and longitude columns -->
+<!-- 8. Add a PointMap to display the last 100 cases using the latitude and longitude columns 
+    - See if you can use the url column in the tooltip to create a link to the SF city site
+    - Docs: https://docs.evidence.dev/components/point-map/#with-clickable-link-and-tooltiptypeclick
+-->
 
 <!-- 9. Pull the top 10 categories for the neighborhood 
         - Create a query called top_categories
