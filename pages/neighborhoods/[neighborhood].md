@@ -2,8 +2,8 @@
 
 ```sql summary
 with case_summary as (
-    select count(1) as count,
-    count(1) filter (status = 'Closed') as closed
+    select count(*) as count,
+    count(*) filter (status = 'Closed') as closed
     from sf311.cases
     where neighborhood = '${params.neighborhood}'
 )
@@ -31,7 +31,7 @@ limit 100
 ```
 
 ```sql top_categories
-select category, count(1) as cases
+select category, count(*) as cases
 from sf311.cases
     where neighborhood = '${params.neighborhood}'
 group by all
@@ -73,7 +73,7 @@ WITH case_counts as (
     select 
         category,
         date_trunc('week', opened) as date,
-        count(1) as cases
+        count(*) as cases
     from sf311.cases
     where neighborhood = '${params.neighborhood}'
     group by all

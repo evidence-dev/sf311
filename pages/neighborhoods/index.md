@@ -14,7 +14,7 @@
 
 
 ```sql neighborhoods
-select neighborhood, count(1) as cases
+select neighborhood, count(*) as cases
 from sf311.cases
 where neighborhood is not null
 group by all
@@ -24,7 +24,7 @@ order by cases desc
 
 ```sql filtered_trend
 select date_trunc('week', opened) as date,
-count(1) as cases
+count(*) as cases
 from sf311.cases
 where opened <= '2024-08-31'
 and (neighborhood = '${inputs.map_input.neighborhood}'
@@ -69,7 +69,7 @@ order by date
 ```sql category_breakdown
 select
     category,
-    count(1) as cases
+    count(*) as cases
 from sf311.cases
 where neighborhood = '${inputs.map_input.neighborhood}'
 or '${inputs.map_input.neighborhood}' = 'true'

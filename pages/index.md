@@ -10,7 +10,7 @@ title: San Francisco 311 Cases
 -->
 
 ```sql description
-select min(opened) as min_date, max(opened) as max_date, count(1) as count
+select min(opened) as min_date, max(opened) as max_date, count(*) as count
 from sf311.cases
 ```
 
@@ -37,7 +37,7 @@ from sf311.cases
 
 
 ```sql summary
-select count(1) as total_cases, count(1) filter (status = 'Open') as open_cases
+select count(*) as total_cases, count(*) filter (status = 'Open') as open_cases
 from sf311.cases
 ```
 
@@ -61,7 +61,7 @@ from sf311.cases
 
 ```sql trend
 select date_trunc('day', opened) as date,
-count(1) as cases
+count(*) as cases
 from sf311.cases
 where ${inputs.dimensions}
 group by all
@@ -126,11 +126,11 @@ from sf311.cases
 
 <!-- SECTION 3: ADD INTERACTIVITY TO YOUR SUMMARY PAGE (INDEX.MD) -->
 
-<!-- 1. Change your dimension grid to become an input by using the 'name' prop -->
+<!-- 1. Change your dimension grid to become an input by using the 'name' prop - call it 'dimensions' -->
 
-<!-- 2. Then hook this up to the LineChart by adding a 'where' clause to your trend query -->
+<!-- 2. Then hook this up to the LineChart by adding a 'where' clause to your trend query. See docs here: https://docs.evidence.dev/components/dimension-grid/#as-an-input -->
 
-<!-- 3. Add the input to the chart title so you get the context when the chart updates -->
+<!-- 3. Add the input to the chart title so you get the context when the chart updates. Inputs can be referenced in curly braces like: {inputs.my_input} -->
 
 <!-- END OF SECTION 3 -->
 
@@ -240,7 +240,7 @@ from sf311.cases
     select 
         category,
         date_trunc('week', opened) as date,
-        count(1) as cases
+        count(*) as cases
     from sf311.cases
     where neighborhood = '${params.neighborhood}'
     group by all

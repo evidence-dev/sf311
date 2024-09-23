@@ -4,7 +4,7 @@
 select 
 category,
 request_type,
-count(1) as cases
+count(*) as cases
 from sf311.cases
 group by all
 order by cases desc
