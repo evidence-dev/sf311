@@ -1,5 +1,7 @@
 # SF 311 Data App Template
 
+**This is the finished project. Please go to https://github.com/evidence-dev/sf311_starter to get the starter template.**
+
 This is a template repo for building an interactive data app with [Evidence](https://evidence.dev) using SF 311 data. This project is part of a workshop at [Small Data SF 2024](https://www.smalldatasf.com/2024/).
 
 Please read this full readme before starting.
